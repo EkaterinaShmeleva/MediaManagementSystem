@@ -1,3 +1,4 @@
+use mmsdb;
 CREATE TABLE films (
     mediaID INT UNIQUE NOT NULL,
     title NVARCHAR(255) NOT NULL,
