@@ -1,10 +1,7 @@
 use mmsdb;
 CREATE TABLE films (
     mediaID INT UNIQUE NOT NULL,
-    title NVARCHAR(255) NOT NULL,
-    releaseDate DATE,
-    addedDate DATE,
-    digital BOOL,
+    length int NOT NULL,
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
 );
