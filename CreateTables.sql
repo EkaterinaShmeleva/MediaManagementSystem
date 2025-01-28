@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS media (
 -- Erstellen der Tabelle locations
 CREATE TABLE IF NOT EXISTS locations (
     locationID INT AUTO_INCREMENT PRIMARY KEY,
-    label VARCHAR(255) NOT NULL
+    label NVARCHAR(255) NOT NULL
 	);
 
 -- Erstellen der Verknüpfungstabelle med_at_loc
