@@ -1,16 +1,14 @@
 Präsentation
 
-Vortrag: Medienverwaltungsdatenbank (Gruppe1)
-
 Folie 1
-Einleitung
+Vortrag: Medienverwaltungsdatenbank (Gruppe1)
 Titel, Begrüßung, Gruppenvorstellung
+
+Folie 2
 Überblick über den Inhalt der Präsentation.
 
 Folie 2
 Kurz über Konzept (unsere Überlegungen vor der DB-Erstellung,  warum es so aufgebaut ist)
-
-Folie 3
 Beschreibung der Datenbank mmsDB - Überblick über die Struktur
 Beziehungs-Modell
 ER-Model 
