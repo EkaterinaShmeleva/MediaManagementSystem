@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS media (
     mediaID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
     title NVARCHAR(255), 
     releaseDate DATE, 
-    addedDate DATE, 
+    addedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, 
     digital BOOL
 	);
 
