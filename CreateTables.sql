@@ -22,9 +22,9 @@ CREATE TABLE IF NOT EXISTS locations (
 CREATE TABLE IF NOT EXISTS med_at_loc (
     locationID INT NOT NULL,
     mediaID INT NOT NULL,
-    FOREIGN KEY (locationID) REFERENCES locations(locationID),
+    FOREIGN KEY (locationID) REFERENCES locations(locationID)
 		ON UPDATE CASCADE,
-    FOREIGN KEY (mediaID) REFERENCES media(mediaID),
+    FOREIGN KEY (mediaID) REFERENCES media(mediaID)
 		ON UPDATE CASCADE,
     PRIMARY KEY (locationID, mediaID)
 	);
