@@ -1,5 +1,5 @@
 DROP database  IF EXISTS mmsDB;
-CREATE database IF mmsDB;
+CREATE database IF NOT EXISTS mmsDB;
 
 USE mmsDB;
 
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS locations (
     label VARCHAR(255) NOT NULL
 	);
 
--- Erstellen der Verknüpfungstabelle med_at_loc
+-- Erstellen der VerknÃ¼pfungstabelle med_at_loc
 CREATE TABLE IF NOT EXISTS med_at_loc (
     locationID INT NOT NULL,
     mediaID INT NOT NULL,
