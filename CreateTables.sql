@@ -23,11 +23,9 @@ CREATE TABLE IF NOT EXISTS med_at_loc (
     locationID INT NOT NULL,
     mediaID INT NOT NULL,
     FOREIGN KEY (locationID) REFERENCES locations(locationID),
-		ON UPDATE CASCADE
-        ON DELETE CASCADE,
+		ON UPDATE CASCADE,
     FOREIGN KEY (mediaID) REFERENCES media(mediaID),
-		ON UPDATE CASCADE
-        ON DELETE CASCADE,
+		ON UPDATE CASCADE,
     PRIMARY KEY (locationID, mediaID)
 	);
 
@@ -40,7 +38,6 @@ CREATE TABLE IF NOT EXISTS music (
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
 		ON UPDATE CASCADE
-        ON DELETE CASCADE,
 );
 
 -- Erstellen der Tabelle movies
@@ -53,7 +50,6 @@ CREATE TABLE IF NOT EXISTS films (
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
 		ON UPDATE CASCADE
-        ON DELETE CASCADE,
 );
 
 -- Erstellen der Tabelle books
@@ -63,7 +59,6 @@ CREATE TABLE IF NOT EXISTS books (
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
 		ON UPDATE CASCADE
-        ON DELETE CASCADE,
 	);
 
 
@@ -75,6 +70,5 @@ CREATE TABLE IF NOT EXISTS series (
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
 		ON UPDATE CASCADE
-        ON DELETE CASCADE,
 	);
 

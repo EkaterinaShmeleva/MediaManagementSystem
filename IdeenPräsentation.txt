@@ -1,0 +1,47 @@
+Präsentation
+
+Vortrag: Medienverwaltungsdatenbank (Gruppe1)
+
+Folie 1
+Einleitung
+Titel, Begrüßung, Gruppenvorstellung
+Überblick über den Inhalt der Präsentation.
+
+Folie 2
+Kurz über Konzept (unsere Überlegungen vor der DB-Erstellung,  warum es so aufgebaut ist)
+
+Folie 3
+Beschreibung der Datenbank mmsDB - Überblick über die Struktur
+Beziehungs-Modell
+ER-Model 
+Erklärung der verschiedenen Medientypen (Bücher, Filme, Musik, Serien).
+
+Folie 4
+Tabelle media 
+Struktur der Tabelle media.
+Bedeutung der Tabelle als zentrale Tabelle für alle Medientypen.
+
+Folie 5
+Abgeleitete Tabellen: books, music, films, serien
+Erklärung der Attribute
+Verwendung von ON UPDATE CASCADE und ON DELETE RESTRICT
+
+Folie 6
+Functionen für die medien-Tabelle
+
+Folie 7
+Struktur der Tabelle locations und med_at_loc
+
+Folie 8
+Struktur der Tabelle withdrawals
+
+Folie 9
+Übersicht über die Sichten und Transaktionen
+
+Folie 10
+Entwicklungsmöglichkeiten (Attribute kann man erweitern: actors bei films und series)
+
+Folie 11
+Zusammenfassung und Fragen 
+Kurze Zusammenfassung der wichtigsten Punkte.
+Einladung zu Fragen und Diskussion.
