@@ -28,22 +28,24 @@ CREATE TABLE IF NOT EXISTS med_at_loc (
 CREATE TABLE IF NOT EXISTS music (
     mediaID INT UNIQUE NOT NULL,
     artist NVARCHAR(255) NOT NULL,
+    genre NVARCHAR(255),
+    album NVARCHAR(255),
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
-	);
+);
 
 -- Einfügen von Daten in die Tabelle music
-INSERT INTO music (mediaID, artist) VALUES
-(11, 'Queen'),
-(12, 'John Lennon'),
-(13, 'Eagles'),
-(14, 'Michael Jackson'),
-(15, 'Nirvana'),
-(16, 'Bob Dylan'),
-(17, 'Louis Armstrong'),
-(18, 'The Beatles'),
-(19, 'Prince'),
-(20, 'Adele');
+INSERT INTO music (mediaID, artist, genre, album) VALUES
+(11, 'Queen', 'Rock', 'A Night at the Opera'),
+(12, 'John Lennon', 'Rock', 'Imagine'),
+(13, 'Eagles', 'Rock', 'Hotel California'),
+(14, 'Michael Jackson', 'Pop', 'Thriller'),
+(15, 'Nirvana', 'Grunge', 'Nevermind'),
+(16, 'Bob Dylan', 'Folk', 'Highway 61 Revisited'),
+(17, 'Louis Armstrong', 'Jazz', 'What a Wonderful World'),
+(18, 'The Beatles', 'Rock', 'Hey Jude'),
+(19, 'Prince', 'Pop', 'Purple Rain'),
+(20, 'Adele', 'Pop', '21');
 
 -- Einfügen von Daten in die Tabelle media für music
 INSERT INTO media (mediaID, title, releaseDate, addedDate, digital) VALUES
@@ -62,22 +64,25 @@ INSERT INTO media (mediaID, title, releaseDate, addedDate, digital) VALUES
 CREATE TABLE IF NOT EXISTS movies (
     mediaID INT UNIQUE NOT NULL,
     length INT NOT NULL,
+    director NVARCHAR(255),
+    genre NVARCHAR(255),
+    rating_imdb DECIMAL(3, 1),
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
-	);
+);
 
 -- Einfügen von Daten in die Tabelle movies
-INSERT INTO movies (mediaID, length) VALUES
-(1, 148),
-(2, 136),
-(3, 169),
-(4, 175),
-(5, 154),
-(6, 152),
-(7, 139),
-(8, 142),
-(9, 142),
-(10, 178);
+INSERT INTO movies (mediaID, length, director, genre, rating_imdb) VALUES
+(1, 148, 'Christopher Nolan', 'Sci-Fi', 8.8),
+(2, 136, 'Lana Wachowski, Lilly Wachowski', 'Sci-Fi', 8.7),
+(3, 169, 'Christopher Nolan', 'Sci-Fi', 8.6),
+(4, 175, 'Francis Ford Coppola', 'Crime', 9.2),
+(5, 154, 'Quentin Tarantino', 'Crime', 8.9),
+(6, 152, 'Christopher Nolan', 'Action', 9.0),
+(7, 139, 'David Fincher', 'Drama', 8.8),
+(8, 142, 'Robert Zemeckis', 'Drama', 8.8),
+(9, 142, 'Frank Darabont', 'Drama', 9.3),
+(10, 178, 'Peter Jackson', 'Fantasy', 8.8);
 
 -- Einfügen von Daten in die Tabelle media für movies
 INSERT INTO media (mediaID, title, releaseDate, addedDate, digital) VALUES
