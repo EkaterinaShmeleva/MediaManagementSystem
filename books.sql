@@ -1,5 +1,6 @@
 USE mmsDB;
 
+/* Please move to CreateTables.sql
 CREATE TABLE books (
 	
 	mediaID	INT				UNIQUE NOT NULL,
@@ -9,6 +10,7 @@ CREATE TABLE books (
 	FOREIGN KEY mediaID REFERENCES mmsDB.media(mediaID)
 
 );
+*/
 
 
 

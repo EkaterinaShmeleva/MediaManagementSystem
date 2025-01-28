@@ -6,6 +6,15 @@ CREATE TABLE films (
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
 );
 
+/*
+SUGGESTED ATTRIBUTES NICK:
+director
+genre
+rating imdb
+NOTE: actors will become another table, so omitted
+*/
+
+/*
 INSERT INTO films (mediaID, title, releaseDate, addedDate, digital) VALUES
 (1, 'Inception', '2010-07-16', '2025-01-27', TRUE),
 (2, 'The Matrix', '1999-03-31', '2025-01-27', TRUE),
@@ -17,3 +26,4 @@ INSERT INTO films (mediaID, title, releaseDate, addedDate, digital) VALUES
 (8, 'Forrest Gump', '1994-07-06', '2025-01-27', FALSE),
 (9, 'The Shawshank Redemption', '1994-09-23', '2025-01-27', TRUE),
 (10, 'The Lord of the Rings: The Fellowship of the Ring', '2001-12-19', '2025-01-27', TRUE);
+*/

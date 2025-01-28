@@ -1,15 +1,19 @@
 use mmsdb;
 CREATE TABLE music (
     mediaID INT UNIQUE NOT NULL,
-    title NVARCHAR(255) NOT NULL,
     artist NVARCHAR(255) NOT NULL,
-    releaseDate DATE,
-    addedDate DATE,
-    digital BOOL,
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
 );
 
+
+/*
+SUGGESTED ATTRIBUTES NICK:
+genre
+album
+*/
+
+/*
 INSERT INTO music (mediaID, title, artist, releaseDate, addedDate, digital) VALUES
 (11, 'Bohemian Rhapsody', 'Queen', '1975-10-31', '2025-01-27', TRUE),
 (12, 'Imagine', 'John Lennon', '1971-10-11', '2025-01-27', TRUE),
@@ -21,3 +25,5 @@ INSERT INTO music (mediaID, title, artist, releaseDate, addedDate, digital) VALU
 (18, 'Hey Jude', 'The Beatles', '1968-08-26', '2025-01-27', TRUE),
 (19, 'Purple Rain', 'Prince', '1984-06-25', '2025-01-27', TRUE),
 (20, 'Rolling in the Deep', 'Adele', '2010-11-29', '2025-01-27', TRUE);
+
+*/
