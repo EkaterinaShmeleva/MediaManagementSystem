@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS media (
 -- Erstellen der Tabelle locations
 CREATE TABLE IF NOT EXISTS locations (
     locationID INT AUTO_INCREMENT PRIMARY KEY,
-    label VARCHAR(255) NOT NULL
+    label NVARCHAR(255) NOT NULL
 	);
 
 -- Erstellen der Verknüpfungstabelle med_at_loc
@@ -23,7 +23,9 @@ CREATE TABLE IF NOT EXISTS med_at_loc (
     locationID INT NOT NULL,
     mediaID INT NOT NULL,
     FOREIGN KEY (locationID) REFERENCES locations(locationID),
+		ON UPDATE CASCADE,
     FOREIGN KEY (mediaID) REFERENCES media(mediaID),
+		ON UPDATE CASCADE,
     PRIMARY KEY (locationID, mediaID)
 	);
 
@@ -35,6 +37,7 @@ CREATE TABLE IF NOT EXISTS music (
     album NVARCHAR(255),
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
+		ON UPDATE CASCADE
 );
 
 -- Erstellen der Tabelle movies
@@ -46,6 +49,7 @@ CREATE TABLE IF NOT EXISTS films (
     rating_imdb DECIMAL(3, 1),
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
+		ON UPDATE CASCADE
 );
 
 -- Erstellen der Tabelle books
@@ -54,6 +58,7 @@ CREATE TABLE IF NOT EXISTS books (
     author NVARCHAR(255) NOT NULL,
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
+		ON UPDATE CASCADE
 	);
 
 
@@ -64,5 +69,6 @@ CREATE TABLE IF NOT EXISTS series (
     seasons INT NOT NULL,
     PRIMARY KEY (mediaID),
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
+		ON UPDATE CASCADE
 	);
 
