@@ -1,7 +1,11 @@
 #!/bin/bash
 
-mysql -pP4ssw0rt -B mmsDB < CreateTables.sql
-mysql -pP4ssw0rt -B mmsDB < Withdrawals.sql
-mysql -pP4ssw0rt -B mmsDB < moreViews.sql
-mysql -pP4ssw0rt -B mmsDB < InsertProcedures.sql
-mysql -pP4ssw0rt -B mmsDB < InsertData.sql
+pwd=$1
+
+mysql -p${pwd} -B mmsDB < CreateTables.sql
+mysql -p${pwd} -B mmsDB < Withdrawals.sql
+mysql -p${pwd} -B mmsDB < moreViews.sql
+mysql -p${pwd} -B mmsDB < InsertProcedures.sql
+mysql -p${pwd} -B mmsDB < InsertData.sql
+mysql -p${pwd} -B mmsDB < LocationsData.sql
+mysql -p${pwd} -B mmsDB < MasterView.sql

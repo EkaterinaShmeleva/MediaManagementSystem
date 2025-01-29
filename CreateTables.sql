@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS med_at_loc;
 CREATE TABLE IF NOT EXISTS med_at_loc (
     locationID INT NOT NULL,
     mediaID INT NOT NULL,
+    fpath NVARCHAR(255),
     FOREIGN KEY (locationID) REFERENCES locations(locationID)
 		ON UPDATE CASCADE,
     FOREIGN KEY (mediaID) REFERENCES media(mediaID)
