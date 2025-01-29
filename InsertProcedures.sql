@@ -1,4 +1,4 @@
-USE mmsdb;
+USE mmsDB;
 
 DROP PROCEDURE IF EXISTS insert_media;
 DROP PROCEDURE IF EXISTS insert_film;

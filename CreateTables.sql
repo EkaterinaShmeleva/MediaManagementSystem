@@ -1,9 +1,10 @@
-DROP database  IF EXISTS mmsDB;
+DROP database IF EXISTS mmsDB;
 CREATE database IF NOT EXISTS mmsDB;
 
 USE mmsDB;
 
 -- Erstellen der Tabelle media
+DROP TABLE IF EXISTS media;
 CREATE TABLE IF NOT EXISTS media (
     mediaID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
     title NVARCHAR(255), 
@@ -13,12 +14,15 @@ CREATE TABLE IF NOT EXISTS media (
 	);
 
 -- Erstellen der Tabelle locations
+DROP TABLE IF EXISTS locations;
 CREATE TABLE IF NOT EXISTS locations (
     locationID INT AUTO_INCREMENT PRIMARY KEY,
-    label NVARCHAR(255) NOT NULL
+    label NVARCHAR(255) NOT NULL,
+    category NVARCHAR(255)
 	);
 
 -- Erstellen der Verknüpfungstabelle med_at_loc
+DROP TABLE IF EXISTS med_at_loc; 
 CREATE TABLE IF NOT EXISTS med_at_loc (
     locationID INT NOT NULL,
     mediaID INT NOT NULL,
@@ -30,6 +34,7 @@ CREATE TABLE IF NOT EXISTS med_at_loc (
 	);
 
 -- Erstellen der Tabelle music
+DROP TABLE IF EXISTS music; 
 CREATE TABLE IF NOT EXISTS music (
     mediaID INT UNIQUE NOT NULL,
     artist NVARCHAR(255) NOT NULL,
@@ -41,6 +46,7 @@ CREATE TABLE IF NOT EXISTS music (
 );
 
 -- Erstellen der Tabelle movies
+DROP TABLE IF EXISTS films;
 CREATE TABLE IF NOT EXISTS films (
     mediaID INT UNIQUE NOT NULL,
     `length` INT NOT NULL,
@@ -53,6 +59,7 @@ CREATE TABLE IF NOT EXISTS films (
 );
 
 -- Erstellen der Tabelle books
+DROP TABLE IF EXISTS books; 
 CREATE TABLE IF NOT EXISTS books (
     mediaID INT UNIQUE NOT NULL,
     author NVARCHAR(255) NOT NULL,
@@ -63,6 +70,7 @@ CREATE TABLE IF NOT EXISTS books (
 
 
 -- Erstellen der Tabelle series
+DROP TABLE IF EXISTS series;
 CREATE TABLE IF NOT EXISTS series (
     mediaID INT UNIQUE NOT NULL,
     genre NVARCHAR(255),
