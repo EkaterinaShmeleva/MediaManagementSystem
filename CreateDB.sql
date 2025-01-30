@@ -194,7 +194,7 @@ AFTER DELETE ON withdrawals
 	BEGIN
 	UPDATE withdrawals_history 
 	SET returnedAt = NOW()
-	WHERE id = OLD.mediaID;
+	WHERE mediaID = OLD.mediaID;
     END//
 DELIMITER ;
 
