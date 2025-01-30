@@ -1,0 +1,3 @@
+USE mmsdb;
+
+SOURCE CreateTables;
