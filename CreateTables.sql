@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS media (
 -- Erstellen der Tabelle locations
 DROP TABLE IF EXISTS locations;
 CREATE TABLE IF NOT EXISTS locations (
-    locationID INT AUTO_INCREMENT PRIMARY KEY,
+    locationID INT PRIMARY KEY,
     label NVARCHAR(255) NOT NULL,
     category NVARCHAR(255)
 	);
