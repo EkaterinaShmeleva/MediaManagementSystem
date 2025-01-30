@@ -1,10 +1,10 @@
-USE mmsdb;
+USE mmsDB;
 
 DROP FUNCTION IF EXISTS countDigitalMedia;
 
 CREATE FUNCTION IF NOT EXISTS countDigitalMedia()
 	RETURNS INT DETERMINISTIC
-	RETURN (SELECT COUNT(*) FROM mmsdb.media
+	RETURN (SELECT COUNT(*) FROM mmsDB.media
 				WHERE digital);
 
 
@@ -16,7 +16,7 @@ CREATE FUNCTION IF NOT EXISTS isAvailable(mediaID_ INT)
 	
 	RETURN (SELECT 
 		EXISTS( SELECT * 
-				FROM mmsdb.withdrawals 
+				FROM mmsDB.withdrawals 
 				WHERE withdrawals.mediaID = mediaID_ ));
 
 
@@ -31,10 +31,10 @@ DELIMITER &&
 CREATE PROCEDURE IF NOT EXISTS mediaAtLocation(IN loclabel_ NVARCHAR(255))
 	BEGIN
 	SELECT * FROM 
-		mmsdb.locations AS l
-			JOIN mmsdb.med_at_loc AS mal
+		mmsDB.locations AS l
+			JOIN mmsDB.med_at_loc AS mal
 			ON l.locationID = mal.locationID
-				JOIN mmsdb.media_titles AS m
+				JOIN mmsDB.view_media_titles AS m
 				ON mal.mediaID = m.mediaID;	
 --		WHERE l.label = loclabel_);
 	END&&
