@@ -128,7 +128,7 @@ LEFT JOIN series ON media.mediaID = series.mediaID;
 -- View for all books with their authors:
 
 DROP VIEW IF EXISTS view_book_details; 
-CREATE VIEW IF NOT EXISTS book_details AS
+CREATE VIEW IF NOT EXISTS view_book_details AS
 SELECT media.mediaID, media.title, books.author, media.releaseDate, media.digital
 FROM media
 JOIN books ON media.mediaID = books.mediaID;
@@ -137,7 +137,7 @@ JOIN books ON media.mediaID = books.mediaID;
 -- View for all films with their directors and IMDb ratings:
 
 DROP VIEW IF EXISTS view_film_details; 
-CREATE VIEW IF NOT EXISTS film_details AS
+CREATE VIEW IF NOT EXISTS view_film_details AS
 SELECT media.mediaID, media.title, films.director, films.rating_imdb, media.digital
 FROM media
 JOIN films ON media.mediaID = films.mediaID;
@@ -431,59 +431,92 @@ Drei PCs  O-PC-1/2, CH-PC-1
 USB-Speichermedien fangen mit USB an
  */
 DELETE FROM locations;
-INSERT INTO locations (locationID, label) VALUES 
-( 1, 'O-SH-1' ),
-( 2, 'O-SH-2' ),
-( 3, 'O-SH-3' ),
-( 4, 'O-SH-4' ),
-( 5, 'O-PC-1' ),
-( 6, 'O-PC-2' ),
-( 7, 'O-DRAWER-1' ),
-( 8, 'O-DRAWER-2' ),
-( 9, 'O-DRAWER-3' ),
-( 10,'O-DRAWER-4' ),
-( 11, 'S-SH-1' ),
-( 12, 'S-SH-2' ),
-( 13, 'S-BOX-1' ),
-( 14, 'S-BOX-2' ),
-( 15, 'S-BOX-3' ),
-( 16, 'S-BOX-4' ),
-( 17, 'S-BOX-5' ),
-( 18, 'S-BOX-6' ),
-( 19, 'S-BOX-7' ),
-( 20, 'S-BOX-8' ),
-( 21, 'CE-BOX-1' ),
-( 22, 'CE-BOX-2' ),
-( 23, 'CE-BOX-3' ),
-( 24, 'CE-BOX-4' ),
-( 25, 'CE-BOX-5' ),
-( 26, 'CE-BOX-6' ),
-( 27, 'CE-BOX-7' ),
-( 28, 'CE-BOX-8' ),
-( 29, 'CH-BOX-1' ),
-( 30, 'CH-PC-1' ),
-( 31, 'CH-SH-1' ),
-( 32, 'CH-SH-2' ),
-( 33, 'USB-HDD-Toshiba 1TB'),
-( 34, 'USB-SSD-Samsung 512GB'),
-( 35, 'USB-Stick-Lukas-Blau'),
-( 36, 'USB-Stick-Alex-ScanDisk')
+INSERT INTO locations (locationID, label, category) VALUES 
+( 1, 'O-SH-1', 'Modern Literature, Classics' ),
+( 2, 'O-SH-2', 'CDs Pop, Rock, Jazz' ),
+( 3, 'O-SH-3', 'Vinyl' ),
+( 4, 'O-SH-4', 'Comic Books' ),
+( 5, 'O-PC-1', 'Digital' ),
+( 6, 'O-PC-2', 'Digital' ),
+( 7, 'O-DRAWER-1', 'Documents' ),
+( 8, 'O-DRAWER-2', 'Documents' ),
+( 9, 'O-DRAWER-3', 'Unsorted' ),
+( 10,'O-DRAWER-4', 'Unsorted' ),
+( 11, 'S-SH-1', 'Unsorted' ),
+( 12, 'S-SH-2', 'Unsorted' ),
+( 13, 'S-BOX-1', 'VHS' ),
+( 14, 'S-BOX-2', 'Buecher' ),
+( 15, 'S-BOX-3', 'CDs, DVDs'),
+( 16, 'S-BOX-4', 'Unsorted' ),
+( 17, 'S-BOX-5', 'Unsorted' ),
+( 18, 'S-BOX-6', 'Unsorted' ),
+( 19, 'S-BOX-7', 'Unsorted' ),
+( 20, 'S-BOX-8', 'Unsorted' ),
+( 21, 'CE-BOX-1', 'Unsorted' ),
+( 22, 'CE-BOX-2', 'Unsorted' ),
+( 23, 'CE-BOX-3', 'Unsorted' ),
+( 24, 'CE-BOX-4', 'Unsorted' ),
+( 25, 'CE-BOX-5', 'Unsorted' ),
+( 26, 'CE-BOX-6', 'Unsorted' ),
+( 27, 'CE-BOX-7', 'Unsorted' ),
+( 28, 'CE-BOX-8', 'Unsorted' ),
+( 29, 'CH-BOX-1', 'Childrens Books' ),
+( 30, 'CH-PC-1', 'Digital' ),
+( 31, 'CH-SH-1', 'Novels' ),
+( 32, 'CH-SH-2', 'Encyclopedias, school books' ),
+( 33, 'USB-HDD-Toshiba 1TB', 'Digital'),
+( 34, 'USB-SSD-Samsung 512GB', 'Digital'),
+( 35, 'USB-Stick-Lukas-Blau', 'Digital'),
+( 36, 'USB-Stick-Alex-ScanDisk', 'Digital')
 ;
-
 
 DELETE FROM med_at_loc;
 INSERT INTO med_at_loc (mediaID, locationID, fpath) VALUES 
-( 1, 5, '/home/xb/films/good_stuff/inception.mp4'),
-( 2, 5, '/home/xb/films/good_stuff/matrix/matrix.mov'),
-( 5, 6, 'G:\\Filme\Pulp_Fiction\pulp_fiction.mp4'),
 ( 6, 6, 'G:\\Filme\The_Dark_Knight\dk.mp4'),
 ( 9, 33, 'Filme\The_Shawshank_Redemption\movie.mp4'),
 ( 10, 34, 'Filme\The_Lord_of_the_Rings_Complete_Trilogy\lotr-fellowship.mp4'),
+
 ( 11, 6, 'F:\\music\bohemian_rhapsody.mp3'),
 ( 12, 6, 'F:\\music\j.lennon/imagine.mp3'),
+( 13, 2, NULL),
 ( 14, 35, 'm_jackson/track03.wav'),
+( 15, 2, NULL),
 ( 16, 35, 'bob_dylan/track20.wav'),
+( 17, 3, NULL),
 ( 18, 35, 'beatles/hey_jude.mp3'),
 ( 19, 36, 'prince/album01/purple_rain.mp3'),
-( 20, 36, 'adele/track05.mp3')
+( 20, 36, 'adele/track05.mp3'),
+
+( 21, 1, NULL),
+( 22, 1, NULL),
+( 23, 1, NULL),
+( 24, 11, NULL),
+( 25, 31, NULL),
+( 26, 14, NULL),
+( 27, 14, NULL),
+
+(31, 5, '/home/xb/series/got'),
+(32, 5, '/home/xb/series/breaking-bad/'),
+(33, 13, NULL),
+(34, 6, 'G:\\Serien\office'),
+(35, 6, 'G:\\Serien\sherlock'),
+(36, 13, NULL),
+(37, 33, 'series\stranger-things ' ),
+(38, 33, 'series\the_mandalorian-RIP2024 '),
+(39, 33, 'series\Fleabag-DVD-rip '),
+(40, 34, '_Serien\the-simpsons '),
+
+(8, 15, NULL),
+(7, 15, NULL),
+(4, 15, NULL),
+(3, 15, NULL)
+;
+
+
+DELETE FROM withdrawals;
+INSERT INTO withdrawals (mediaID, withdrawnAt, withdrawnBy) VALUES
+(22, NOW(), 'Nick'),
+(8, NOW(), 'Nick'),
+(25, NOW(), 'Ekaterina'),
+(17, NOW(), 'Lukas')
 ;
